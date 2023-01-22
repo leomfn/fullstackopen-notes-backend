@@ -1,18 +1,32 @@
 GET http://localhost:3001/api/notes
 
-###
-GET http://localhost:3001/api/notes/63cd9f651a5d9243f662678e
+### malformatted id
+GET http://localhost:3001/api/notes/1234
+
+### non existing id
+GET http://localhost:3001/api/notes/63cd779e2c95653a3065a470
+
+### correct id
+GET http://localhost:3001/api/notes/63cd779e2c95653a3065a476
 
 ###
-DELETE http://localhost:3001/api/notes/63cd9f651a5d9243f662678e
+DELETE http://localhost:3001/api/notes/63cda038f828379aab5603fc
 
 ###
-
 POST http://localhost:3001/api/notes
 Content-Type: application/json
 
 {
     "content": "Test new note"
+}
+
+###
+PUT http://localhost:3001/api/notes/63cdc26ee3e3337f507c36d6
+Content-Type: application/json
+
+{
+    "content": "Updated note content and importance",
+    "important": true
 }
 
 ### unknown endpoint
